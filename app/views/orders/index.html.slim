@@ -1,0 +1,24 @@
+h1 My orders
+= link_to 'Add New Order', new_order_path
+table
+  thead
+    tr
+      th Product
+      th Quantity
+      th Total
+      th
+      th
+      th
+
+  tbody
+    - @orders.each do |order|
+      tr
+        td = order.try(:product).try(:name)
+        td = order.quantity
+        td = order.total
+        td = link_to 'Show', order
+        td = link_to 'Edit', edit_order_path(order)
+        td = link_to 'Destroy', order, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+

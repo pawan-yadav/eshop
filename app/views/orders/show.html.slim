@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Product:
+  = @order.try(:product).try(:name)
+p
+  strong Quantity:
+  = @order.quantity
+p
+  strong Total:
+  = @order.total
+
+= link_to 'Edit', edit_order_path(@order)
+'|
+= link_to 'Back', orders_path
